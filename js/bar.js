@@ -23,6 +23,14 @@ svg.append('g')
 svg.append('g')
     .attr('class','yaxis');
 
+d3.select('.chart').insert('text')
+    .attr('class','title')
+    .attr('x',0)
+    .attr('y', margin.top/2)
+    .attr("text-anchor", "left")  
+    .style("font-size", "16px") 
+    .text('Title of the chart');
+
 d3.csv('http://localhost:8000/iris.csv', function (d,i) { 
     return { row: i,
             species: d.species,
@@ -38,7 +46,7 @@ var update = function(data) {
     console.log(data.length);
     var lengths = d3.nest()
                     .key(function(d) { return d.species; })
-                    .rollup(function(v) { return d3.mean( v, function(d) { return d.petal_length})})
+                    .rollup(function(v) { return d3.mean( v, function(d) { return d.petal_length})}) // this can be changed to median easily
                     .entries(data);
                     
     console.log(lengths);
