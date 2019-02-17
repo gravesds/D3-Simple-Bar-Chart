@@ -4,7 +4,7 @@
 This is a simple bar chart, again using the Iris datasource (strictly for simplicity).
 
 ### What I Learned
-Aggregation using nest().
+Aggregation using `nest()`.
 When aggregating - you essentially pick a key (and I believe you can nest keys) and then a value to aggregate using the entries function.  This file just does a simple mean, but using built in D3 functions and the abilities of Javascript there's technically no bounds.
 
 ### Running This File
